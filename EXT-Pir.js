@@ -9,12 +9,7 @@ Module.register("EXT-Pir", {
     defaults: {
       debug: false,
       gpio: 21,
-      reverseValue: false,
-      NPMCheck: {
-        useChecker: true,
-        delay: 10 * 60 * 1000,
-        useAlert: true
-      }
+      reverseValue: false
     },
 
     socketNotificationReceived: function (notification, payload) {
