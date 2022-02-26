@@ -10,7 +10,6 @@ logPIR = (...args) => { /* do nothing */ }
 module.exports = NodeHelper.create({
 
   start: function() {
-    console.log('Starting node_helper for module ' + this.name)
     this.lib = {}
   },
 
@@ -23,8 +22,7 @@ module.exports = NodeHelper.create({
       console.error("[PIR] Warning:", bugsounet, "needed @bugsounet library not loaded !")
       console.error("[PIR] Try to solve it with `npm run rebuild` in EXT-Pir directory")
       return
-    }
-    else {
+    } else {
       console.log("[PIR] All needed @bugsounet library loaded !")
     }
     this.PIR()
