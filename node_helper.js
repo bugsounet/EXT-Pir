@@ -10,7 +10,6 @@ logPIR = (...args) => { /* do nothing */ }
 module.exports = NodeHelper.create({
 
   start: function() {
-    console.log('Starting node_helper for module ' + this.name)
     this.lib = {}
   },
 
@@ -23,18 +22,8 @@ module.exports = NodeHelper.create({
       console.error("[PIR] Warning:", bugsounet, "needed @bugsounet library not loaded !")
       console.error("[PIR] Try to solve it with `npm run rebuild` in EXT-Pir directory")
       return
-    }
-    else {
+    } else {
       console.log("[PIR] All needed @bugsounet library loaded !")
-    }
-    if (this.config.NPMCheck.useChecker) {
-      var cfg = {
-        dirName: __dirname,
-        moduleName: this.name,
-        timer: this.config.NPMCheck.delay,
-        debug: this.config.debug
-      }
-      new this.lib.npmCheck(cfg, update => { this.sendSocketNotification("NPM_UPDATE", update)} )
     }
     this.PIR()
     console.log("[PIR] Initialize Complete Version:", require('./package.json').version, "rev:", require('./package.json').rev )
@@ -69,7 +58,6 @@ module.exports = NodeHelper.create({
   loadBugsounetLibrary: function() {
     let libraries= [
       // { "library to load" : [ "store library name", "path to check"] }
-      { "@bugsounet/npmcheck": [ "npmCheck", "NPMCheck.useChecker" ] },
       { "@bugsounet/pir": [ "Pir", "gpio" ] },
     ]
     let errors = 0

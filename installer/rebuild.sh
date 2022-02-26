@@ -25,7 +25,6 @@ cd ..
 
 Installer_info "Welcome to EXT-Pir rebuild script"
 Installer_warning "This script will erase current build and reinstall it"
-Installer_error "Use this script only for the new version of Magic Mirror or developer request"
 Installer_yesno "Do you want to continue ?" || exit 0
 
 echo
