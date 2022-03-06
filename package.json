@@ -1,7 +1,7 @@
 {
   "name": "EXT-Pir",
   "version": "1.0.0",
-  "rev": "220226",
+  "rev": "220306",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
