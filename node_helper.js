@@ -58,7 +58,7 @@ module.exports = NodeHelper.create({
   loadBugsounetLibrary: function() {
     let libraries= [
       // { "library to load" : [ "store library name", "path to check"] }
-      { "@bugsounet/pir": [ "Pir", "gpio" ] },
+      { "./lib/pirLib.js": [ "Pir", "gpio" ] },
     ]
     let errors = 0
     return new Promise(resolve => {
