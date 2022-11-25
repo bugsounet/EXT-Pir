@@ -14,6 +14,12 @@ Module.register("EXT-Pir", {
 
   socketNotificationReceived: function (notification, payload) {
     switch(notification) {
+      case "PIR_STARTED":
+        this.sendNotification("EXT_PIR-STARTED")
+        break
+      case "PIR_STOP":
+        this.sendNotification("EXT_PIR-STOPPED")
+        break
       case "PIR_DETECTED":
         this.sendNotification("EXT_SCREEN-WAKEUP")
         break
@@ -41,6 +47,12 @@ Module.register("EXT-Pir", {
         break
       case "GAv4_READY":
         if (sender.name == "MMM-GoogleAssistant") this.sendNotification("EXT_HELLO", this.name)
+        break
+      case "EXT_PIR-RESTART":
+        this.sendSocketNotification("RESTART")
+        break
+      case "EXT_PIR-STOP":
+        this.sendSocketNotification("STOP")
         break
     }
   },
