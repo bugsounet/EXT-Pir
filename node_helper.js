@@ -35,6 +35,12 @@ module.exports = NodeHelper.create({
         this.config = payload
         this.initialize()
         break
+      case "STOP":
+        this.stopPIR()
+        break
+      case "RESTART":
+        this.startPIR()
+        break
     }
   },
 
@@ -50,6 +56,14 @@ module.exports = NodeHelper.create({
       reverseValue: this.config.reverseValue
     }
     this.pir = new this.lib.Pir(pirConfig, callbacks.pir, this.config.debug)
+    this.pir.start()
+  },
+
+  stopPIR: function() {
+    this.pir.stop()
+  },
+
+  startPIR: function() {
     this.pir.start()
   },
 
