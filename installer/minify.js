@@ -46,7 +46,7 @@ check(
     if (!result.isSatisfied) {
       console.error("Warn: Master code optimization error!");
       console.error("Needed node >= 14.0");
-      console.error("If you want to optimize really Gateway, you have use node v14.0 (or more)");
+      console.error("If you want to optimize really, you have use node v14.0 (or more)");
       console.error("Info: Don't worry, this step is not compulsory!")
     } else {
       minifyFiles()
