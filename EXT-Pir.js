@@ -45,7 +45,7 @@ Module.register("EXT-Pir", {
       case "DOM_OBJECTS_CREATED":
         this.sendSocketNotification("INIT", this.config)
         break
-      case "GAv4_READY":
+      case "GAv5_READY":
         if (sender.name == "MMM-GoogleAssistant") this.sendNotification("EXT_HELLO", this.name)
         break
       case "EXT_PIR-RESTART":
