@@ -1,10 +1,8 @@
-# EXT-Pir - Extented for `MMM-GoogleAssistant` v5.x
-
-EXT-Pir is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror) project by [Michael Teeuw](https://github.com/MichMich).<br>
+# EXT-Pir - Extented for `MMM-GoogleAssistant`
 
 It allows to allow to control `EXT-Screen` module with a PIR Sensor
 
-This module is an Extented for `MMM-GoogleAssistant` v5.x, and need `EXT-Screen` for working.<br>
+This module is an Extented for `MMM-GoogleAssistant` and need `EXT-Screen` for working.<br>
 
 ## Installation / update / configuration
 

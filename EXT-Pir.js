@@ -42,17 +42,18 @@ Module.register("EXT-Pir", {
 
   notificationReceived: function (notification, payload, sender) {
     switch(notification) {
-      case "DOM_OBJECTS_CREATED":
-        this.sendSocketNotification("INIT", this.config)
-        break
-      case "GAv5_READY":
-        if (sender.name == "MMM-GoogleAssistant") this.sendNotification("EXT_HELLO", this.name)
+      case "GW_READY":
+        if (sender.name == "Gateway") {
+          this.sendSocketNotification("INIT", this.config)
+          this.sendNotification("EXT_HELLO", this.name)
+          this.ready = true
+        }
         break
       case "EXT_PIR-RESTART":
-        this.sendSocketNotification("RESTART")
+        if (this.ready) this.sendSocketNotification("RESTART")
         break
       case "EXT_PIR-STOP":
-        this.sendSocketNotification("STOP")
+        if (this.ready) this.sendSocketNotification("STOP")
         break
     }
   },

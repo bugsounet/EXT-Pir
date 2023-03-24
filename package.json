@@ -1,14 +1,15 @@
 {
   "name": "EXT-Pir",
-  "version": "1.0.3",
-  "rev": "230312",
+  "version": "1.1.0",
+  "rev": "230324",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
     "postinstall": "installer/postinstall.sh",
     "update": "installer/update.sh",
-    "rebuild": "installer/rebuild.sh"
+    "rebuild": "installer/rebuild.sh",
+    "reset": "git reset --hard"
   },
   "keywords": [
     "magic mirror",
