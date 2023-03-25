@@ -9,7 +9,8 @@
     "postinstall": "installer/postinstall.sh",
     "update": "installer/update.sh",
     "rebuild": "installer/rebuild.sh",
-    "reset": "git reset --hard"
+    "reset": "git reset --hard",
+    "clean": "rm -rf node_modules package-lock.json"
   },
   "keywords": [
     "magic mirror",
