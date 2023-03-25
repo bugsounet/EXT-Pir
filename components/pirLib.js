@@ -14,7 +14,7 @@ class PIR {
     }
     this.config = Object.assign({}, this.default, this.config)
     if (!this.config.libGpio) return console.error("[PIR:LIB] onoff library missing!")
-    if (this.config.debug) log = (...args) => { console.log("[PIR:LIB]", ...args) }
+    if (this.config.debug) log = (...args) => { console.log("[PIR] [CORE]", ...args) }
     this.pir = null
     this.running = false
     this.callback("PIR_INITIALIZED")
@@ -27,14 +27,14 @@ class PIR {
       this.pir = new this.config.libGpio(this.config.gpio, 'in', 'both')
       this.callback("PIR_STARTED")
     } catch (err) {
-      console.error("[PIR:LIB] " + err)
+      console.error("[PIR] [CORE] " + err)
       this.running = false
       return this.callback("PIR_ERROR", err)
     }
     this.running = true
     this.pir.watch((err, value)=> {
       if (err) {
-        console.error("[PIR:LIB] " + err)
+        console.error("[PIR] [CORE] " + err)
         return this.callback("PIR_ERROR", err)
       }
       log("Sensor read value: " + value)
