@@ -1,31 +1,22 @@
 /** PIR library **/
 /** bugsounet **/
 
-const Gpio = require('onoff').Gpio
-
-var _log = function() {
-    var context = "[PIR]"
-    return Function.prototype.bind.call(console.log, console, context)
-}()
-
-var log = function() {
-  //do nothing
-}
+var log = (...args) => { /* do nothing */ }
 
 class PIR {
-  constructor(config, callback, debug) {
-    this.version = "1.1.0"
+  constructor(config, callback) {
     this.config = config
     this.callback = callback
     this.default = {
+      debug: this.config.debug,
       gpio: 21,
       reverseValue: false
     }
     this.config = Object.assign({}, this.default, this.config)
-    if (debug == true) log = _log
+    if (!this.config.libGpio) return console.error("[PIR:LIB] onoff library missing!")
+    if (this.config.debug) log = (...args) => { console.log("[PIR:LIB]", ...args) }
     this.pir = null
     this.running = false
-    console.log("[PIR] PIR Library v" + this.version + " Initialized...")
     this.callback("PIR_INITIALIZED")
   }
 
@@ -33,17 +24,17 @@ class PIR {
     if (this.running) return
     log("Start")
     try {
-      this.pir = new Gpio(this.config.gpio, 'in', 'both')
+      this.pir = new this.config.libGpio(this.config.gpio, 'in', 'both')
       this.callback("PIR_STARTED")
     } catch (err) {
-      console.log("[PIR:ERROR] " + err)
+      console.error("[PIR:LIB] " + err)
       this.running = false
       return this.callback("PIR_ERROR", err)
     }
     this.running = true
     this.pir.watch((err, value)=> {
       if (err) {
-        console.log("[PIR:ERROR] " + err)
+        console.error("[PIR:LIB] " + err)
         return this.callback("PIR_ERROR", err)
       }
       log("Sensor read value: " + value)

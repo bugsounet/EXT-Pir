@@ -1,19 +1,27 @@
 /******************
-*  EXT_Pir v1
+*  EXT_Pir
 *  ©Bugsounet
-*  02/2022
+*  03/2023
 ******************/
 
 Module.register("EXT-Pir", {
-  requiresVersion: "2.18.0",
+  requiresVersion: "2.22.0",
   defaults: {
     debug: false,
     gpio: 21,
     reverseValue: false
   },
 
+  start: function () {
+    this.ready = false
+  },
+
   socketNotificationReceived: function (notification, payload) {
     switch(notification) {
+      case "PIR_INITIALIZED":
+        this.ready = true
+        this.sendNotification("EXT_HELLO", this.name)
+        break
       case "PIR_STARTED":
         this.sendNotification("EXT_PIR-STARTED")
         break
@@ -43,14 +51,10 @@ Module.register("EXT-Pir", {
   notificationReceived: function (notification, payload, sender) {
     switch(notification) {
       case "GW_READY":
-        if (sender.name == "Gateway") {
-          this.sendSocketNotification("INIT", this.config)
-          this.sendNotification("EXT_HELLO", this.name)
-          this.ready = true
-        }
+        if (sender.name == "Gateway") this.sendSocketNotification("INIT", this.config)
         break
-      case "EXT_PIR-RESTART":
-        if (this.ready) this.sendSocketNotification("RESTART")
+      case "EXT_PIR-START":
+        if (this.ready) this.sendSocketNotification("START")
         break
       case "EXT_PIR-STOP":
         if (this.ready) this.sendSocketNotification("STOP")
