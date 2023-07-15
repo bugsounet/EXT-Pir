@@ -1,7 +1,7 @@
 {
   "name": "EXT-Pir",
-  "version": "1.1.0",
-  "rev": "230325",
+  "version": "1.1.1",
+  "rev": "230715",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "check-node-version": "^4.2.1",
     "glob": "^9.0.1",
-    "magicmirror-rebuild": "^1.0.5",
+    "magicmirror-rebuild": "https://github.com/bugsounet/MagicMirror-rebuild",
     "minify": "^9.2.0",
     "onoff": "^6.0.3"
   },
