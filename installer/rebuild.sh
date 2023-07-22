@@ -32,11 +32,12 @@ Installer_info "Deleting: package-lock.json node_modules"
 rm -rf package-lock.json node_modules
 Installer_success "Done."
 
-echo
-Installer_info "Upgrading EXT-Pir..."
-git reset --hard HEAD
-git pull
-Installer_success "Done."
+Installer_info "Updating..."
+(git reset --hard && git pull) || {
+  Installer_error "Update Failed!"
+  exit 255
+}
+Installer_success "Done"
 
-Installer_info "Reinstalling EXT-Pir..."
+Installer_info "Reinstalling..."
 npm install
