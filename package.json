@@ -1,7 +1,7 @@
 {
   "name": "EXT-Pir",
-  "version": "1.1.1",
-  "rev": "230715",
+  "version": "1.1.2",
+  "rev": "230722",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
@@ -21,14 +21,12 @@
     "GoogleAssistant"
   ],
   "engines": {
-    "npm": ">=6.14.0",
-    "node": ">=14.0.0"
+    "node": ">=16.14.0"
   },
   "dependencies": {
-    "check-node-version": "^4.2.1",
-    "glob": "^9.0.1",
-    "magicmirror-rebuild": "https://github.com/bugsounet/MagicMirror-rebuild",
-    "minify": "^9.2.0",
+    "esbuild": "^0.18.15",
+    "glob": "^10.3.3",
+    "magicmirror-rebuild": "^1.0.8",
     "onoff": "^6.0.3"
   },
   "repository": {

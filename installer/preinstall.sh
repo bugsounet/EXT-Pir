@@ -23,6 +23,7 @@ source utils.sh
 # Go back to module root
 cd ..
 
+echo
 # check version in package.json file
 Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
@@ -51,7 +52,7 @@ if  [ "$platform" == "osx" ]; then
   echo
   exit 255
 else
-  if  [ "$os_name" == "raspbian" ] && [ "$os_version" -lt 10 ]; then
+  if  [ "$os_name" == "raspbian" ] && [ "$os_version" -lt 11 ]; then
     Installer_error "OS Detected: $OSTYPE ($os_name $os_version $arch)"
     Installer_error "Unfortunately, this module is not compatible with your OS"
     Installer_error "Try to update your OS to the lasted version of raspbian"
@@ -61,8 +62,3 @@ else
     Installer_success "OS Detected: $OSTYPE ($os_name $os_version $arch)"
   fi
 fi
-
-echo
-Installer_info "Installing all npm libraries..."
-
-

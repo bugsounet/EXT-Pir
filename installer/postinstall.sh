@@ -21,23 +21,15 @@ cd "$Installer_dir"
 source utils.sh
 
 Installer_info "Minify Main code..."
-node minify.js
+node minify.js || {
+  Installer_error "Minify Failed!"
+  exit 255
+}
 Installer_success "Done"
+echo
 
 # Go back to module root
 cd ..
-
-# module name
-Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
-
-echo
-
-Installer_info "Prepare PIR sensor using"
-# for pir sensor
-sudo usermod -a -G gpio pi || echo "Error command: sudo usermod -a -G gpio pi"
-sudo chmod -f u+s /opt/vc/bin/tvservice && sudo chmod -f u+s /bin/chvt || echo "Error command: sudo chmod u+s /opt/vc/bin/tvservice && sudo chmod u+s /bin/chvt"
-Installer_success "Done"
-echo
 
 Installer_info "Rebuild MagicMirror..."
 MagicMirror-rebuild 2>/dev/null || {
@@ -45,7 +37,10 @@ MagicMirror-rebuild 2>/dev/null || {
   exit 255
 }
 Installer_success "Done"
+
 echo
+# module name
+Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # the end...
 Installer_warning "Support is now moved in a dedicated Server: https://forum.bugsounet.fr"
