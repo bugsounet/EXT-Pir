@@ -6,7 +6,7 @@
   "main": "EXT-Pir.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
-    "postinstall": "installer/postinstall.sh -r -m",
+    "postinstall": "installer/postinstall.sh -r -m -b",
     "update": "installer/update.sh",
     "rebuild": "installer/rebuild.sh",
     "reset": "git reset --hard",
