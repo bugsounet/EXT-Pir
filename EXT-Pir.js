@@ -50,8 +50,8 @@ Module.register("EXT-Pir", {
 
   notificationReceived: function (notification, payload, sender) {
     switch(notification) {
-      case "GW_READY":
-        if (sender.name == "Gateway") this.sendSocketNotification("INIT", this.config)
+      case "GA_READY":
+        if (sender.name == "MMM-GoogleAssistant") this.sendSocketNotification("INIT", this.config)
         break
       case "EXT_PIR-START":
         if (this.ready) this.sendSocketNotification("START")
