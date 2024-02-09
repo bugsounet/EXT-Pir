@@ -1,11 +1,10 @@
-/******************
-*  EXT_Pir
-*  ©Bugsounet
-*  03/2023
+/*!****************
+* EXT_Pir
+* bugsounet ©02/24
 ******************/
 
 Module.register("EXT-Pir", {
-  requiresVersion: "2.22.0",
+  requiresVersion: "2.26.0",
   defaults: {
     debug: false,
     gpio: 21,
@@ -34,14 +33,14 @@ Module.register("EXT-Pir", {
       case "PIR_ERROR":
         this.sendNotification("EXT_ALERT", {
           type: "error",
-          message: "Error Detected. Try to solve it with `npm run rebuild` in EXT-Pir directory",
+          message: `Error Detected: ${payload}`,
           timer: 10000
         })
         break
       case "WARNING":
         this.sendNotification("EXT_ALERT", {
           type: "warning",
-          message: "Error When Loading: " + payload.library + ". Try to solve it with `npm run rebuild` in EXT-Pir directory",
+          message: `Error When Loading: ${payload.library}. Try to solve it with 'npm run rebuild' in EXT-Pir directory`,
           timer: 10000
         })
         break
