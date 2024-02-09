@@ -1,6 +1,7 @@
 class pirCommander {
-  constructor(that) {
-    this.callback= (noti,params) => that.sendSocketNotification(noti, params)
+  constructor(config,lib,Tools) {
+    this.lib= lib
+    this.callback= (...args) => tools.sendSocketNotification(...args)
     this.pirConfig= {
       libGpio: that.lib.onoff.Gpio,
       debug: that.config.debug,
