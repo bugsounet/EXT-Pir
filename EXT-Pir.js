@@ -4,7 +4,7 @@
 ******************/
 
 Module.register("EXT-Pir", {
-  requiresVersion: "2.26.0",
+  requiresVersion: "2.25.0",
   defaults: {
     debug: false,
     gpio: 21,
