@@ -1,5 +1,9 @@
 module.exports = {
   "extends": ["eslint:recommended", "plugin:@stylistic/all-extends", "plugin:import/recommended"],
+  "env": {
+		"es2023": true,
+		"node": true
+	},
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2023,
