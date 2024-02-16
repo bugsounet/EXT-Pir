@@ -28,12 +28,14 @@
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
-    "@stylistic/eslint-plugin": "^1.6.2",
     "esbuild": "^0.20.0",
     "eslint": "^8.56.0",
-    "eslint-plugin-import": "^2.29.1",
     "glob": "^10.3.10",
     "onoff": "^6.0.3"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.6.2",
+    "eslint-plugin-import": "^2.29.1"
   },
   "repository": {
     "type": "git",
