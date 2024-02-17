@@ -11,8 +11,8 @@
     "rebuild": "installer/rebuild.sh",
     "reset": "git reset --hard",
     "clean": "rm -rf node_modules package-lock.json",
-    "lint": "eslint . --resolve-plugins-relative-to .",
-    "lint:fix": "eslint . --fix --resolve-plugins-relative-to ."
+    "lint": "eslint *.js installer/*.js components/*.js --resolve-plugins-relative-to . --no-eslintrc --config .eslintrc.js",
+    "lint:fix": "eslint *.js installer/*.js components/*.js --resolve-plugins-relative-to . --no-eslintrc --config .eslintrc.js --fix"
   },
   "keywords": [
     "magic mirror",
