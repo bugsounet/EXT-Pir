@@ -1,4 +1,4 @@
-name: "ESLint test"
+name: "ESLint Testing"
 
 on: [pull_request]
 
