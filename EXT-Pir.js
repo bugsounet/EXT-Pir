@@ -7,8 +7,7 @@ Module.register("EXT-Pir", {
   requiresVersion: "2.25.0",
   defaults: {
     debug: false,
-    gpio: 21,
-    reverseValue: false
+    gpio: 21
   },
 
   start () {

@@ -1,12 +1,12 @@
 {
   "name": "EXT-Pir",
-  "version": "1.4.1",
-  "rev": "240218",
+  "version": "1.5.0",
+  "rev": "240301",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
-    "postinstall": "installer/postinstall.sh -r -m -b",
+    "postinstall": "installer/postinstall.sh -m -b",
     "update": "installer/update.sh",
     "rebuild": "installer/rebuild.sh",
     "reset": "git reset --hard",
@@ -27,10 +27,9 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@electron/rebuild": "^3.6.0",
     "esbuild": "^0.20.1",
     "glob": "^10.3.10",
-    "onoff": "^6.0.3"
+    "python-shell": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^8.57.0",
