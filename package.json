@@ -8,7 +8,6 @@
     "preinstall": "installer/preinstall.sh",
     "postinstall": "installer/postinstall.sh -m -b",
     "update": "installer/update.sh",
-    "rebuild": "installer/rebuild.sh",
     "reset": "git reset --hard",
     "clean": "rm -rf node_modules package-lock.json",
     "lint": "eslint *.js installer/*.js components/*.js --config eslint.config.js",
