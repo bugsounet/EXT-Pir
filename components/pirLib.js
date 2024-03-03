@@ -27,7 +27,7 @@ class PIR {
     let options = {
       mode: "text",
       scriptPath: __dirname,
-      pythonOptions: ['-u'],
+      pythonOptions: ["-u"],
       args: [ "-g", this.config.gpio ]
     };
 
