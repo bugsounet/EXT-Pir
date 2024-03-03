@@ -45,7 +45,7 @@ class PIR {
     });
     this.pir.on("stderr", (stderr) => {
       // handle stderr (a line of text from stderr)
-      log("[PIR] [CORE]", stderr);
+      if (this.config.debug) console.error("[PIR] [CORE]", stderr);
       this.running = false;
     });
 
