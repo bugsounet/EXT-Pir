@@ -39,21 +39,20 @@ class PIR {
         log("Detected presence");
         this.callback("PIR_DETECTED");
       } else {
-        //this.callback("PIR_ERROR", "Error Detected");
-        console.warn("[PIR] [CORE]", message);
-	  }
+        console.error("[PIR] [CORE]", message);
+        this.callback("PIR_ERROR", message);
+      }
     });
     this.pir.on("stderr", (stderr) => {
       // handle stderr (a line of text from stderr)
-      console.error("[PIR] [CORE]", stderr);
+      log("[PIR] [CORE]", stderr);
       this.running = false;
     });
 
     this.pir.end((err,code,signal) => {
-	  if (err) console.error("[PIR] [CORE]",err);
-	  console.warn(`[PIR] [CORE] The exit code was: ${  code}`);
-	  console.warn(`[PIR] [CORE] The exit signal was: ${  signal}`);
-	  console.warn("[PIR] [CORE] finished");
+      if (err) console.error("[PIR] [CORE] [PYTHON]",err);
+      console.warn(`[PIR] [CORE] [PYTHON] The exit code was: ${code}`);
+      console.warn(`[PIR] [CORE] [PYTHON] The exit signal was: ${signal}`);
     });
   }
 
