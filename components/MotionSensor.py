@@ -17,9 +17,14 @@ parser.add_argument("-g", "--gpio", help="Define GPIO", type=gpio_check, require
 
 args = parser.parse_args(None if sys.argv[1:] else ['-h'])
 
+GPIO = "GPIO" + str(args.gpio)
+
+def detected():
+  print('Detected')
+
 try:
-  pir = MotionSensor("GPIO" + str(args.gpio))
-  pir.when_motion = lambda: print('Detected')
+  pir = MotionSensor(GPIO)
+  pir.when_motion = detected
   pause()
 except Exception as e:
   print("Error:", e)
