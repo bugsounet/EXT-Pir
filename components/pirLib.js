@@ -23,15 +23,17 @@ class PIR {
 
   start () {
     if (this.running) return;
-    log("Start");
+    log("Start", this.config);
     let options = {
       mode: "text",
       scriptPath: __dirname,
+      pythonOptions: ['-u'],
       args: [ "-g", this.config.gpio ]
     };
 
     this.pir = new PythonShell("MotionSensor.py", options);
     this.callback("PIR_STARTED");
+
     this.running = true;
     this.pir.on("message", (message) => {
       // detect pir
@@ -41,6 +43,7 @@ class PIR {
       } else {
         console.error("[PIR] [CORE]", message);
         this.callback("PIR_ERROR", message);
+        this.running = false;
       }
     });
     this.pir.on("stderr", (stderr) => {
