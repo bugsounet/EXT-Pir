@@ -23,7 +23,7 @@ class PIR {
 
   start () {
     if (this.running) return;
-    log("Start", this.config);
+    log("Start");
     let options = {
       mode: "text",
       scriptPath: __dirname,
