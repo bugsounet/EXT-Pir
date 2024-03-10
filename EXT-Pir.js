@@ -7,7 +7,8 @@ Module.register("EXT-Pir", {
   requiresVersion: "2.25.0",
   defaults: {
     debug: false,
-    gpio: 21
+    gpio: 21,
+    mode: 0
   },
 
   start () {
@@ -33,13 +34,6 @@ Module.register("EXT-Pir", {
         this.sendNotification("EXT_ALERT", {
           type: "error",
           message: `Error Detected: ${payload}`,
-          timer: 10000
-        });
-        break;
-      case "WARNING":
-        this.sendNotification("EXT_ALERT", {
-          type: "warning",
-          message: `Error When Loading: ${payload.library}. Try to solve it with 'npm run rebuild' in EXT-Pir directory`,
           timer: 10000
         });
         break;
