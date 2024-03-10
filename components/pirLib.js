@@ -26,20 +26,20 @@ class PIR {
     if (this.running) return;
     switch (this.config.mode) {
       case 0:
-        console.log("[MMM-Pir] [LIB] [PIR] Mode 0 Selected (onoff library)");
+        console.log("[PIR] [CORE] Mode 0 Selected (onoff library)");
         this.onoffDetect();
         break;
       case 1:
-        console.log("[MMM-Pir] [LIB] [PIR] Mode 1 Selected (rpi.gpio)");
+        console.log("[PIR] [CORE] Mode 1 Selected (rpi.gpio)");
         this.gpioDetect();
         break;
       case 2:
-        console.log("[MMM-Pir] [LIB] [PIR] Mode 2 Selected (gpiozero)");
+        console.log("[PIR] [CORE] Mode 2 Selected (gpiozero)");
         this.gpiozeroDetect();
         break;
       default:
-        console.warn(`[MMM-Pir] [LIB] [PIR] mode: ${this.config.mode} is not a valid value`);
-        console.warn("[MMM-Pir] [LIB] [PIR] set mode 0");
+        console.warn(`[PIR] [CORE] mode: ${this.config.mode} is not a valid value`);
+        console.warn("[PIR] [CORE] set mode 0");
         this.config.mode = 0;
         this.onoffDetect();
         break;
@@ -118,8 +118,8 @@ class PIR {
         console.error("[PIR] [CORE] [PYTHON]",err);
         this.callback("PIR_ERROR", err.message);
       }
-      console.warn(`[MMM-Pir] [LIB] [PIR] [PYTHON] The exit code was: ${code}`);
-      console.warn(`[MMM-Pir] [LIB] [PIR] [PYTHON] The exit signal was: ${signal}`);
+      console.warn(`[PIR] [CORE] [PYTHON] The exit code was: ${code}`);
+      console.warn(`[PIR] [CORE] [PYTHON] The exit signal was: ${signal}`);
     });
   }
 
