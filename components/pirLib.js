@@ -61,7 +61,7 @@ class PIR {
       const Gpio = require("onoff").Gpio;
       this.pir = new Gpio(this.config.gpio, "in", "both");
       this.callback("PIR_STARTED");
-      console.log("[PIR] [CORE] Started in MODE 0!");
+      console.log("[PIR] [CORE] Started!");
     } catch (err) {
       console.error(`[PIR] [CORE] ${err}`);
       this.running = false;
@@ -92,7 +92,7 @@ class PIR {
 
     this.pir = new PythonShell("gpioSensor.py", options);
     this.callback("PIR_STARTED");
-    console.log("[PIR] [CORE] Started in MODE 1!");
+    console.log("[PIR] [CORE] Started!");
     this.running = true;
 
     this.pir.on("message", (message) => {
@@ -134,7 +134,7 @@ class PIR {
 
     this.pir = new PythonShell("MotionSensor.py", options);
     this.callback("PIR_STARTED");
-    console.log("[PIR] [CORE] Started in MODE 2!");
+    console.log("[PIR] [CORE] Started!");
 
     this.running = true;
     this.pir.on("message", (message) => {
