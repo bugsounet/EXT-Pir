@@ -1,0 +1,26 @@
+name: "MagicMirror² (master) and EXT-Pir build Testing"
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Test install EXT-Pir
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout MagicMirror²
+        uses: actions/checkout@v4
+        with:
+          repository: MagicMirrorOrg/MagicMirror
+
+      - name: Install MagicMirror²
+        run: npm install
+
+      - name: Checkout EXT-Pir
+        uses: actions/checkout@v4
+        with:
+          path: MagicMirror/modules/EXT-Pir
+
+      - name: Install EXT-Pir
+        run: npm install
+        working-directory: MagicMirror/modules/EXT-Pir
+        continue-on-error: false
