@@ -1,12 +1,12 @@
 {
   "name": "EXT-Pir",
-  "version": "1.6.1",
-  "rev": "240321",
+  "version": "1.7.0",
+  "rev": "240701",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh -d 'python3 python-is-python3 python3-gpiozero'",
-    "postinstall": "installer/postinstall.sh -m -b -r",
+    "postinstall": "installer/postinstall.sh -m -r",
     "update": "installer/update.sh",
     "rebuild": "installer/rebuild.sh",
     "reset": "git reset --hard",
@@ -27,19 +27,19 @@
     "GoogleAssistant"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
-    "esbuild": "^0.20.2",
-    "glob": "^10.3.10",
-    "nan": "^2.19.0",
+    "esbuild": "^0.22.0",
+    "glob": "^10.4.2",
+    "nan": "^2.20.0",
     "onoff": "^6.0.3",
     "python-shell": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^8.57.0",
-    "@stylistic/eslint-plugin": "^1.7.0",
+    "@stylistic/eslint-plugin": "^1.8.1",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1"
   },
@@ -50,7 +50,7 @@
   "author": "bugsounet",
   "license": "MIT",
   "bugs": {
-    "url": "https://forum.bugsounet.fr/"
+    "url": "https://github.com/bugsounet/EXT-Pir/issues"
   },
   "homepage": "https://wiki.bugsounet.fr/en/EXT-Pir"
 }
