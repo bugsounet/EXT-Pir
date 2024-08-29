@@ -56,7 +56,13 @@ class PIR {
   stop () {
     if (!this.running) return;
     if (this.config.mode === 0) this.pir.unexport();
-    else this.pir.kill();
+    else {
+      if (this.config.mode === 3 && this.pirLine) {
+        this.pirLine.release();
+        this.pirLine = null;
+      }
+      else this.pir.kill();
+    }
     this.pir = null;
     this.running = false;
     this.callback("PIR_STOP");
