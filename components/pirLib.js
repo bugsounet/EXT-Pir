@@ -176,8 +176,16 @@ class PIR {
   async gpiodDetect () {
     try {
       const { version, Chip, Line } = require("node-libgpiod");
-
-      this.pirChipNumber = await this.ChipDetect();
+      const numbers = [0,1,2,3,4,5,6,7,8,9,10];
+      numbers.forEach((number) => {
+        try {
+          const chip = new Chip(number);
+          if (chip.getChipLabel().includes("pinctrl-")) {
+            console.log(`[PIR] [CORE] [GPIOD] Found chip ${number}: ${chip.getChipLabel()}`);
+            this.pirChipNumber = number;
+          }
+        } catch { /* out of chip */ }
+      });
 
       if (this.pirChipNumber === -1) {
         console.error("[PIR] [CORE] [GPIOD] No Chip Found!");
@@ -223,26 +231,6 @@ class PIR {
       }
     };
     setInterval(() => this.pir(), 1000);
-  };
-
-  /** todo better... */
-  ChipDetect () {
-    const { version, Chip, Line } = require("node-libgpiod");
-    return new Promise ((resolve) => {
-      var chip = new Chip(0);
-      if (chip.getChipLabel().includes("pinctrl-")) {
-        console.log("[PIR] [CORE] [GPIOD] Found chip 0");
-        resolve(0);
-      } else {
-        chip = new Chip(4);
-        if (chip.getChipLabel().includes("pinctrl-")) {
-          console.log("[PIR] [CORE] [GPIOD] Found chip 4");
-          resolve(4);
-        } else {
-          resolve(-1);
-        }
-      }
-    });
   }
 }
 
