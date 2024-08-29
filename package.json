@@ -34,6 +34,7 @@
     "esbuild": "^0.23.1",
     "glob": "^10.4.5",
     "nan": "^2.20.0",
+    "node-libgpiod": "^0.4.6",
     "onoff": "^6.0.3",
     "python-shell": "^5.0.0"
   },
