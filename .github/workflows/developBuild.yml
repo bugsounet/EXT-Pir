@@ -28,6 +28,6 @@ jobs:
           path: MagicMirror/modules/EXT-Pir
 
       - name: Install EXT-Pir
-        run: npm install
+        run: npm run setup
         working-directory: MagicMirror/modules/EXT-Pir
         continue-on-error: false
