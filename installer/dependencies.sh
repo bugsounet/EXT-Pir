@@ -1,7 +1,16 @@
 #!/bin/bash
 # +----------------+
-# | npm preinstall |
+# | npm dependencies |
 # +----------------+
+
+dependencies=
+
+while getopts ":d:" option; do
+  case $option in
+    d) # -d option for install dependencies
+       dependencies=($OPTARG);;
+  esac
+done
 
 # get the installer directory
 Installer_get_current_dir () {
@@ -29,18 +38,8 @@ Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # Let's start !
-Installer_info "Welcome to $Installer_module v$Installer_version"
+Installer_info "Welcome to $Installer_module v$Installer_version dependencies installer"
 
-echo
-
-# Check not run as root
-Installer_info "No root checking..."
-if [ "$EUID" -eq 0 ]; then
-  Installer_error "npm install must not be used as root"
-  exit 255
-fi
-Installer_chk "$(pwd)/" "$Installer_module"
-Installer_chk "$(pwd)/../../" "MagicMirror"
 echo
 
 # Check platform compatibility
@@ -66,5 +65,7 @@ fi
 echo
 #check dependencies
 if [[ -n $dependencies ]]; then
-  npm run dependencies || exit 255
+  Installer_info "Checking all dependencies..."
+  Installer_update_dependencies || exit 255
+  Installer_success "All Dependencies needed are installed !"
 fi

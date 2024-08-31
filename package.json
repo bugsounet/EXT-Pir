@@ -1,11 +1,13 @@
 {
   "name": "EXT-Pir",
-  "version": "1.7.0",
-  "rev": "240701",
+  "version": "1.7.1",
+  "rev": "240831",
   "description": "GA EXT PIR Module",
   "main": "EXT-Pir.js",
   "scripts": {
-    "preinstall": "installer/preinstall.sh -d 'python3 python-is-python3 python3-gpiozero'",
+    "dependencies": "installer/dependencies.sh -d 'python3 python-is-python3 python3-gpiozero'",
+    "setup": "npm run dependencies && npm install",
+    "preinstall": "installer/preinstall.sh",
     "postinstall": "installer/postinstall.sh -m -r",
     "update": "installer/update.sh",
     "rebuild": "installer/rebuild.sh",
