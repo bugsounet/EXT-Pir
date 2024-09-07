@@ -29,7 +29,7 @@ Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # Let's start !
-Installer_info "③ ⮊ Preinstall ⮈"
+Installer_info "③ ➤ Preinstall"
 
 echo
 

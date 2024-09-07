@@ -40,7 +40,7 @@ Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' 
 # Let's start !
 Installer_info "Welcome to $Installer_module v$Installer_version"
 echo
-Installer_info "① ⮊ dependencies installer ⮈"
+Installer_info "① ➤ dependencies installer"
 echo
 
 # Check platform compatibility
@@ -72,4 +72,4 @@ if [[ -n $dependencies ]]; then
 fi
 
 echo
-Installer_info "② ⮊ Install npm dependencies ⮈"
+Installer_info "② ➤ Install npm dependencies"

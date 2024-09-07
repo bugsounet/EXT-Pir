@@ -33,7 +33,7 @@ cd "$Installer_dir"
 source utils.sh
 echo
 
-Installer_info "④ ⮊ Postinstall ⮈"
+Installer_info "④ ➤ Postinstall"
 echo
 
 if [[ $minify == 1 ]]; then
