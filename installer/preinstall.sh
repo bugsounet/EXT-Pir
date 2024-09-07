@@ -29,7 +29,7 @@ Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # Let's start !
-Installer_info "Welcome to $Installer_module v$Installer_version"
+Installer_info "② ⮊ Preinstall ⮈"
 
 echo
 
@@ -64,7 +64,4 @@ else
 fi
 
 echo
-#check dependencies
-if [[ -n $dependencies ]]; then
-  npm run dependencies || exit 255
-fi
+Installer_info "③ ⮊ Install npm dependencies ⮈"

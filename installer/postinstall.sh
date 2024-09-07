@@ -33,6 +33,8 @@ cd "$Installer_dir"
 source utils.sh
 echo
 
+Installer_info "④ ⮊ Postinstall ⮈"
+
 if [[ $minify == 1 ]]; then
   Installer_info "Minify Main code..."
   node minify.js || {
