@@ -39,6 +39,7 @@ Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' 
 
 # Let's start !
 Installer_info "Welcome to $Installer_module v$Installer_version"
+echo
 Installer_info "① ⮊ dependencies installer ⮈"
 echo
 
