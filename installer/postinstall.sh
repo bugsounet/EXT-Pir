@@ -34,6 +34,7 @@ source utils.sh
 echo
 
 Installer_info "④ ⮊ Postinstall ⮈"
+echo
 
 if [[ $minify == 1 ]]; then
   Installer_info "Minify Main code..."
