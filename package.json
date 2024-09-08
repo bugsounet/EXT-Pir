@@ -1,8 +1,8 @@
 {
   "name": "EXT-Pir",
   "version": "1.7.1",
-  "rev": "240831",
-  "description": "GA EXT PIR Module",
+  "rev": "240908",
+  "description": "GA EXT-PIR plugin",
   "main": "EXT-Pir.js",
   "scripts": {
     "dependencies": "installer/dependencies.sh -d 'python3 python-is-python3 python3-gpiozero'",
