@@ -38,8 +38,9 @@ Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # Let's start !
-Installer_info "Welcome to $Installer_module v$Installer_version dependencies installer"
-
+Installer_info "Welcome to $Installer_module v$Installer_version"
+echo
+Installer_info "① ➤ dependencies installer"
 echo
 
 # Check platform compatibility
