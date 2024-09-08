@@ -34,15 +34,15 @@ Installer_yesno "Do you want to continue ?" || exit 0
 
 echo
 Installer_info "Deleting: package-lock.json node_modules" 
-rm -rf package-lock.json node_modules
+npm run clean
 Installer_success "Done."
 
 Installer_info "Updating..."
-(git reset --hard && git pull) || {
+(npm run reset && git pull) || {
   Installer_error "Update Failed!"
   exit 255
 }
 Installer_success "Done"
 
 Installer_info "Reinstalling..."
-npm install
+npm run setup
