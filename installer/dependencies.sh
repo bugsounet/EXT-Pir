@@ -70,6 +70,3 @@ if [[ -n $dependencies ]]; then
   Installer_update_dependencies || exit 255
   Installer_success "All Dependencies needed are installed !"
 fi
-
-echo
-Installer_info "② ➤ Install npm dependencies"

@@ -29,7 +29,7 @@ Installer_version="$(grep -Eo '\"version\"[^,]*' ./package.json | grep -Eo '[^:]
 Installer_module="$(grep -Eo '\"name\"[^,]*' ./package.json | grep -Eo '[^:]*$' | awk  -F'\"' '{print $2}')"
 
 # Let's start !
-Installer_info "③ ➤ Preinstall"
+Installer_info "② ➤ Preinstall"
 
 echo
 
@@ -42,3 +42,5 @@ fi
 Installer_chk "$(pwd)/" "$Installer_module"
 Installer_chk "$(pwd)/../../" "MagicMirror"
 echo
+
+Installer_info "③ ➤ Install npm dependencies"
