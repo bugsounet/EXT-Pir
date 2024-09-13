@@ -29,11 +29,11 @@ class PIR {
     if (this.running) return;
     switch (this.config.mode) {
       case 0:
-        console.log("[PIR] [CORE] Mode 3 Selected (gpiod library)");
+        console.log("[PIR] [CORE] Mode 0 Selected (gpiod library)");
         this.gpiodDetect();
         break;
       case 1:
-        console.log("[PIR] [CORE] Mode 2 Selected (gpiozero)");
+        console.log("[PIR] [CORE] Mode 1 Selected (gpiozero)");
         this.gpiozeroDetect();
         break;
       default:
@@ -47,14 +47,15 @@ class PIR {
 
   stop () {
     if (!this.running) return;
-    if (this.config.mode === 0) this.pir.unexport();
-    else {
-      if (this.config.mode === 3 && this.pirLine) {
-        this.pirLine.release();
-        this.pirLine = null;
-      }
-      else this.pir.kill();
+    if (this.config.mode === 0 && this.pirLine) {
+      this.pirLine.release();
+      this.pirLine = null;
     }
+
+    if (this.config.mode === 1) {
+      this.pir.kill();
+    }
+
     this.pir = null;
     this.running = false;
     this.callback("PIR_STOP");
