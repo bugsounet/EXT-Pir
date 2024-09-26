@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.24.0",
     "glob": "^10.4.5",
     "nan": "^2.20.0",
     "node-libgpiod": "^0.4.6",
