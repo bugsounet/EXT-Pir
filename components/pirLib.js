@@ -61,7 +61,7 @@ class PIR {
     this.pir = null;
     this.running = false;
     this.callback("PIR_STOP");
-    log("Stop");
+    console.log("[PIR] [CORE] Stopped!");
   }
 
   gpiozeroDetect () {
