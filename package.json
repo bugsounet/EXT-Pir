@@ -1,7 +1,7 @@
 {
   "name": "EXT-Pir",
-  "version": "2.0.0",
-  "rev": "240913",
+  "version": "2.0.1",
+  "rev": "241005",
   "description": "GA EXT-PIR plugin",
   "main": "EXT-Pir.js",
   "scripts": {
@@ -36,17 +36,15 @@
   },
   "dependencies": {
     "@electron/rebuild": "^3.6.0",
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.24.0",
     "glob": "^10.4.5",
     "nan": "^2.20.0",
     "node-libgpiod": "^0.4.6",
     "python-shell": "^5.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^8.57.0",
-    "@stylistic/eslint-plugin": "^1.8.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.29.1"
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "eslint": "^9.12.0"
   },
   "repository": {
     "type": "git",

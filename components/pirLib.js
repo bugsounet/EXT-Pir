@@ -23,6 +23,7 @@ class PIR {
     this.pirChip = null;
     this.pirLine = null;
     this.pirChipNumber = -1;
+    this.pirInterval = null;
   }
 
   start () {
@@ -48,6 +49,7 @@ class PIR {
   stop () {
     if (!this.running) return;
     if (this.config.mode === 0 && this.pirLine) {
+      clearInterval(this.pirInterval);
       this.pirLine.release();
       this.pirLine = null;
     }
@@ -59,7 +61,7 @@ class PIR {
     this.pir = null;
     this.running = false;
     this.callback("PIR_STOP");
-    log("Stop");
+    console.log("[PIR] [CORE] Stopped!");
   }
 
   gpiozeroDetect () {
@@ -168,7 +170,7 @@ class PIR {
         };
       }
     };
-    setInterval(() => this.pir(), 1000);
+    this.pirInterval = setInterval(() => this.pir(), 1000);
   }
 }
 
