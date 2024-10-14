@@ -38,7 +38,7 @@
     "@electron/rebuild": "^3.6.2",
     "esbuild": "^0.24.0",
     "glob": "^10.4.5",
-    "nan": "^2.20.0",
+    "nan": "^2.22.0",
     "node-libgpiod": "^0.4.6",
     "python-shell": "^5.0.0"
   },
