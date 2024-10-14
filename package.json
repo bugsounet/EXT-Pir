@@ -35,7 +35,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@electron/rebuild": "^3.6.2",
+    "@electron/rebuild": "^3.7.0",
     "esbuild": "^0.24.0",
     "glob": "^10.4.5",
     "nan": "^2.22.0",
